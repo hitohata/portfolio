@@ -1,0 +1,23 @@
+---
+import TagWrapperLayout from "./TagWrapperLayout.astro"
+---
+<nav>
+    <TagWrapperLayout tag="ui" >
+        <ul class="app-bar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">REST</a></li>
+            <li><a href="#">GraphQL</a></li>
+        </ul>
+    </TagWrapperLayout>
+</nav>
+<slot />
+
+<style>
+    .app-bar {
+        overflow: hidden;
+        list-style-type: none;
+    }
+    .app-bar li {
+        float: left;
+    }
+</style>

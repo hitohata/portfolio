@@ -1,0 +1,13 @@
+---
+interface Props {
+    tag: string,
+    content: string
+}
+
+const { tag, content } = Astro.props;
+
+const textContent = `<${tag}> ${content} </${tag}>`
+
+const Element = tag
+---
+<Element>{textContent}</Element>

@@ -1,0 +1,21 @@
+---
+import ElementWrapper from "./ElementWrapper.astro"
+import  "../styles/components/header.css"
+---
+
+<header class="header">
+    <ElementWrapper tag="h1" content="Hi, I am Taro Hirohata" />
+    <div class="responsive">
+        <ElementWrapper tag="p" content="who know responsive design" class="description" />
+    </div>
+    <ElementWrapper tag="p" content="I am Software Developer" class="description" />
+</header>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>

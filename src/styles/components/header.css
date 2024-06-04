@@ -1,0 +1,21 @@
+.responsive {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    .responsive {
+        display: block;
+    }
+}
+
+.header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+}
+
+.header p {
+    font-size: 30px;
+    margin-top: 0px;
+}
