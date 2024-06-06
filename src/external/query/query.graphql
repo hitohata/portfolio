@@ -3,7 +3,6 @@ query MyResume {
         lastName
         location
         firstName
-        phone
         title
     }
     allContactInformation {
@@ -11,18 +10,6 @@ query MyResume {
         type
         url
     }
-    experiences {
-        company
-        endDate
-        location
-        startDate
-        title
-        work {
-          details
-          projectTitle
-          techStacks
-        }
-  }
   educations {
     finish
     institution

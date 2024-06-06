@@ -97,7 +97,7 @@ export type Query = {
   /** all contact information. */
   allContactInformation: Array<ContactInfo>;
   /** basic information. */
-  basics?: Maybe<Basics>;
+  basics: Basics;
   /** specific information. */
   contactInformation: ContactInfo;
   /** specific project. The order starts from 1, and up to 3. */
@@ -171,7 +171,7 @@ export type Work = {
 export type MyResumeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MyResumeQuery = { __typename?: 'Query', basics?: { __typename?: 'Basics', lastName: string, location: string, firstName: string, phone: string, title: string } | null, allContactInformation: Array<{ __typename?: 'ContactInfo', name: string, type: ContactType, url: string }>, experiences: Array<{ __typename?: 'Experience', company: string, endDate?: string | null, location: string, startDate: string, title: string, work: Array<{ __typename?: 'Work', details: Array<string>, projectTitle?: string | null, techStacks: Array<string> }> }>, educations: Array<{ __typename?: 'Education', finish?: string | null, institution: string, location: string, start: string, degree: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
+export type MyResumeQuery = { __typename?: 'Query', basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', name: string, type: ContactType, url: string }>, educations: Array<{ __typename?: 'Education', finish?: string | null, institution: string, location: string, start: string, degree: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
 
 
 export const MyResumeDocument = gql`
@@ -180,25 +180,12 @@ export const MyResumeDocument = gql`
     lastName
     location
     firstName
-    phone
     title
   }
   allContactInformation {
     name
     type
     url
-  }
-  experiences {
-    company
-    endDate
-    location
-    startDate
-    title
-    work {
-      details
-      projectTitle
-      techStacks
-    }
   }
   educations {
     finish

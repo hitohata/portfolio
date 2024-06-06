@@ -1,0 +1,27 @@
+---
+import {TechnicalSkill} from "../../gql/request";
+import ElementWrapper from "../ElementWrapper.astro";
+interface Props {
+    skill: TechnicalSkill
+}
+
+const { skill } = Astro.props;
+---
+
+<div>
+    <ElementWrapper tag="section" content={skill.category} />
+    <div class="skill-stacks">
+        { skill.stacks.map(stack => <p>{stack}</p>) }
+    </div>
+</div>
+<style>
+    .skill-stacks {
+        display: flex;
+        margin-left: 20px;
+    }
+    .skill-stacks p {
+        padding-right: 10px;
+        background-color: floralwhite;
+        border-radius: 25%;
+    }
+</style>

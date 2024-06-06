@@ -1,26 +1,24 @@
 ---
 import Header from "../components/Header.astro";
 import Overview from "../components/Overview.astro";
-import { fetchingResume } from "../external/fetch";
+import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
 import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
+import Skills from "../components/Skills.astro";
 
-await fetchingResume();
+const myResume = await fetchResume();
 ---
 
 <Layout>
 	<main>
 		<TagWrapperLayout tag="Breaf Introduction">
-			<Header />
+			<Header basics={ myResume.basics } />
 		</TagWrapperLayout>
 		<TagWrapperLayout tag="skills">
-
+			<Skills skills={ myResume.technicalSkills } />
 		</TagWrapperLayout>
 		<TagWrapperLayout tag="Overview">
 			<Overview />
-		</TagWrapperLayout>
-		<TagWrapperLayout tag="experience">
-
 		</TagWrapperLayout>
 		<TagWrapperLayout tag="projects">
 
