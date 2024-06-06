@@ -10,13 +10,6 @@ query MyResume {
         type
         url
     }
-  educations {
-    finish
-    institution
-    location
-    start
-    degree
-  }
   projects {
     details
     links {
