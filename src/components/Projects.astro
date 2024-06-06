@@ -1,0 +1,11 @@
+---
+import {Project} from "../gql/request";
+import ProjectComponent from "./projects/ProjectComponent.astro";
+
+interface Props {
+    projects: Project[]
+}
+const { projects } = Astro.props;
+---
+
+{ projects.map(project => <ProjectComponent project={ project } />) }
