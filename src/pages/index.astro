@@ -1,8 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
 import Header from "../components/Header.astro";
-import Overview from "../components/Overview.astro"
+import Overview from "../components/Overview.astro";
+import { fetchingResume } from "../external/fetch";
+import Layout from "../layouts/Layout.astro";
+import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
+
+await fetchingResume();
 ---
 
 <Layout>
