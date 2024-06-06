@@ -1,33 +1,38 @@
 ---
-import {TechnicalSkill} from "../../gql/request";
-import ElementWrapper from "../ElementWrapper.astro";
+import type { TechnicalSkill } from "../../gql/request";
+import TagWrapperLayout from "../../layouts/TagWrapperLayout.astro";
 import ElementCustomWrapper from "../ElementCustomWrapper.astro";
+import ElementWrapper from "../ElementWrapper.astro";
 interface Props {
-    skill: TechnicalSkill
+	skill: TechnicalSkill;
 }
 
 const { skill } = Astro.props;
 ---
 
-<div>
-    <ElementCustomWrapper tag="section" tagName="category" content={skill.category} >
-        <p class="category">{skill.category}</p>
-    </ElementCustomWrapper>
+<TagWrapperLayout tag="Skill">
+    <div class="skill">
+    <p class="category">{`${skill.category}:`}</p>
     <div class="skill-stacks">
         { skill.stacks.map(stack => <p>{stack}</p>) }
     </div>
-</div>
+    </div>
+</TagWrapperLayout>
 <style>
+    .skill {
+        display: flex;
+        flex-wrap: wrap;
+    }
     .category {
         font-weight: bold;
     }
     .skill-stacks {
         display: flex;
         margin-left: 20px;
+        flex-wrap: wrap;
     }
     .skill-stacks p {
         padding-right: 10px;
-        background-color: floralwhite;
         border-radius: 25%;
     }
 </style>

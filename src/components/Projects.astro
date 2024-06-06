@@ -1,9 +1,9 @@
 ---
-import {Project} from "../gql/request";
+import type { Project } from "../gql/request";
 import ProjectComponent from "./projects/ProjectComponent.astro";
 
 interface Props {
-    projects: Project[]
+	projects: Project[];
 }
 const { projects } = Astro.props;
 ---
