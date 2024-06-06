@@ -1,0 +1,46 @@
+query MyResume {
+    basics {
+        lastName
+        location
+        firstName
+        phone
+        title
+    }
+    allContactInformation {
+        name
+        type
+        url
+    }
+    experiences {
+        company
+        endDate
+        location
+        startDate
+        title
+        work {
+          details
+          projectTitle
+          techStacks
+        }
+  }
+  educations {
+    finish
+    institution
+    location
+    start
+    degree
+  }
+  projects {
+    details
+    links {
+      title
+      url
+    }
+    projectTitle
+    techStacks
+  }
+  technicalSkills {
+    category
+    stacks
+  }
+}
