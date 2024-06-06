@@ -1,0 +1,37 @@
+name: Test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-format:
+    timeout-minutes: 3
+    name: Check format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@4
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+      - name: install packages
+        run: bun install
+      - name: check format
+        run: bun run format:check
+
+  check-build:
+    timeout-minutes: 3
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@4
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+      - name: install packages
+        run: bun install
+      - name: code gen
+        run: bun run codegen
+      - name: build
+        run: bun run build
