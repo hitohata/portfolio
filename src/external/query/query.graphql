@@ -6,21 +6,20 @@ query MyResume {
         title
     }
     allContactInformation {
-        name
         type
         url
     }
-  projects {
-    details
-    links {
-      title
-      url
+    projects {
+        details
+        links {
+            title
+            url
+        }
+        projectTitle
+        techStacks
     }
-    projectTitle
-    techStacks
-  }
-  technicalSkills {
-    category
-    stacks
-  }
+    technicalSkills {
+        category
+        stacks
+    }
 }

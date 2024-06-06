@@ -171,7 +171,7 @@ export type Work = {
 export type MyResumeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MyResumeQuery = { __typename?: 'Query', basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', name: string, type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
+export type MyResumeQuery = { __typename?: 'Query', basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
 
 
 export const MyResumeDocument = gql`
@@ -183,7 +183,6 @@ export const MyResumeDocument = gql`
     title
   }
   allContactInformation {
-    name
     type
     url
   }

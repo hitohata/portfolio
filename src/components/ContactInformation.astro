@@ -1,0 +1,18 @@
+---
+import type { ContactInfo } from "../gql/request";
+interface Props {
+	contactInfo: ContactInfo[];
+}
+
+const { contactInfo } = Astro.props;
+---
+
+<div class="contact-info">
+    {contactInfo.map(info => <a href={info.url}>{`${info.type}`}</a>)}
+</div>
+<style>
+    .contact-info {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
