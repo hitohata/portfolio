@@ -13,7 +13,7 @@
 
     const years = new Date(new Date() - Date.parse("2015-04-01")).getFullYear() - 1970;
     const overview = document.getElementById("overview");
-    const overviewContent = overview.innerText.replace("{%YEARS%}", String(years));;
+    const overviewContent = overview.innerText.replace("{%YEARS%}", String(years));
 
-    overview.innerHTML = overviewContent;
+    overview.innerHTML = overviewContent || "";
 </script>

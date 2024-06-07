@@ -2,7 +2,7 @@
     display: none;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1007px) {
     .responsive {
         display: block;
     }
@@ -17,5 +17,5 @@
 
 .header p {
     font-size: 30px;
-    margin-top: 0px;
+    margin-top: 0;
 }
