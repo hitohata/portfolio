@@ -8,18 +8,22 @@ import { fetchResume } from "../external/fetch";
 import AppBarLayout from "../layouts/AppBarLayout.astro";
 import Layout from "../layouts/Layout.astro";
 import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
+import Detail from "../components/Detail.astro";
 
 const myResume = await fetchResume();
 ---
 
 <Layout>
-	<AppBarLayout>
+	<!--<AppBarLayout>-->
 		<main>
 			<TagWrapperLayout tag="Breaf Introduction">
 				<Header basics={ myResume.basics } />
 			</TagWrapperLayout>
 			<TagWrapperLayout tag="Contact Information">
 				<ContactInformation contactInfo={ myResume.allContactInformation } />
+			</TagWrapperLayout>
+			<TagWrapperLayout tag="Detail">
+				<Detail />
 			</TagWrapperLayout>
 			<TagWrapperLayout tag="skills">
 				<Skills skills={ myResume.technicalSkills } />
@@ -31,7 +35,7 @@ const myResume = await fetchResume();
 				<Projects projects={ myResume.projects } />
 			</TagWrapperLayout>
 		</main>
-	</AppBarLayout>
+	<!--</AppBarLayout>-->
 </Layout>
 
 <style>
