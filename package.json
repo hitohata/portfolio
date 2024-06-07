@@ -7,7 +7,7 @@
     "start": "astro dev",
     "check": "astro check",
     "build": "biome check . && astro build",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "wrangler pages deploy ./dist",
     "format": "biome check . --write",
