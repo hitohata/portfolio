@@ -1,9 +1,10 @@
 
 import type { CodegenConfig } from '@graphql-codegen/cli';
+import { GQL_API_URL } from "./src/static/static.ts";
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: "http://localhost:8787/graphql",
+  schema: GQL_API_URL,
   documents: "./src/external/query/query.graphql",
   generates: {
     "src/gql/request.ts": {
