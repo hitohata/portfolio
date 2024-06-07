@@ -1,14 +1,13 @@
 ---
 import ContactInformation from "../components/ContactInformation.astro";
+import Detail from "../components/Detail.astro";
 import Header from "../components/Header.astro";
 import Overview from "../components/Overview.astro";
 import Projects from "../components/Projects.astro";
 import Skills from "../components/Skills.astro";
 import { fetchResume } from "../external/fetch";
-import AppBarLayout from "../layouts/AppBarLayout.astro";
 import Layout from "../layouts/Layout.astro";
 import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
-import Detail from "../components/Detail.astro";
 
 const myResume = await fetchResume();
 ---
