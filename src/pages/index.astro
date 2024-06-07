@@ -19,6 +19,9 @@ const myResume = await fetchResume();
 			<TagWrapperLayout tag="Breaf Introduction">
 				<Header basics={ myResume.basics } />
 			</TagWrapperLayout>
+			<TagWrapperLayout tag="Overview">
+				<Overview />
+			</TagWrapperLayout>
 			<TagWrapperLayout tag="Contact Information">
 				<ContactInformation contactInfo={ myResume.allContactInformation } />
 			</TagWrapperLayout>
@@ -27,9 +30,6 @@ const myResume = await fetchResume();
 			</TagWrapperLayout>
 			<TagWrapperLayout tag="skills">
 				<Skills skills={ myResume.technicalSkills } />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Overview">
-				<Overview />
 			</TagWrapperLayout>
 			<TagWrapperLayout tag="projects">
 				<Projects projects={ myResume.projects } />
