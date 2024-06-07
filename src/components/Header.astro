@@ -1,0 +1,28 @@
+---
+import ElementWrapper from "./ElementWrapper.astro";
+import "../styles/components/header.css";
+import type { Basics } from "../gql/request";
+
+interface Props {
+	basics: Omit<Basics, "phone">;
+}
+
+const { firstName, lastName, title, location } = Astro.props.basics;
+---
+
+<header class="header">
+    <ElementWrapper tag="h1" content=`Hi, I am ${firstName} ${lastName}` />
+    <div class="responsive">
+        <ElementWrapper tag="p" content="who know responsive design"/>
+    </div>
+    <ElementWrapper tag="p" content=`I am a ${title} living in ${location}`/>
+</header>
+
+<style>
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>

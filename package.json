@@ -1,0 +1,28 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "check": "astro check",
+    "build": "biome check . && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "biome check . --write",
+    "format:check": "biome check .",
+    "codegen": "graphql-codegen --config codegen.ts"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@biomejs/biome": "^1.8.0",
+    "astro": "^4.9.2",
+    "graphql-request": "^7.0.1",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/client-preset": "4.2.6",
+    "@graphql-codegen/typescript-graphql-request": "^6.2.0"
+  }
+}

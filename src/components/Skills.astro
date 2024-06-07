@@ -1,0 +1,14 @@
+---
+import type { TechnicalSkill } from "../gql/request";
+import Skill from "./skills/Skill.astro";
+
+interface Props {
+	skills: TechnicalSkill[];
+}
+
+const props = Astro.props;
+---
+
+<div>
+    { props.skills.map(skill => <Skill skill={ skill } />) }
+</div>

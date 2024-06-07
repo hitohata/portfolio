@@ -1,0 +1,30 @@
+---
+interface Props {
+	tag: string;
+}
+
+const { tag } = Astro.props;
+---
+
+<div id="outer">
+    <p class="tag">{`<${tag}>`}</p>
+    <div id="inner">
+        <slot />
+    </div>
+    <p class="tag">{`</${tag}>`}</p>
+</div>
+
+<style>
+    .tag {
+        font-size: 15px;
+        margin: 0;
+        font-style: italic;
+    }
+    #outer {
+        margin: 5px;
+        padding: 5px
+    }
+    #inner {
+        padding: 15px;
+    }
+</style>

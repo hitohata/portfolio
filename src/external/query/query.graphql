@@ -1,0 +1,25 @@
+query MyResume {
+    basics {
+        lastName
+        location
+        firstName
+        title
+    }
+    allContactInformation {
+        type
+        url
+    }
+    projects {
+        details
+        links {
+            title
+            url
+        }
+        projectTitle
+        techStacks
+    }
+    technicalSkills {
+        category
+        stacks
+    }
+}
