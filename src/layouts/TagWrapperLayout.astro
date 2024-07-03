@@ -11,7 +11,7 @@ const linkTag = (tag + (suffix ? `-${suffix}` : ""))
 ---
 
 <div id="outer">
-    <a href=`#${linkTag}`>
+    <a id={linkTag} href=`#${linkTag}`>
         <p class="tag">{`<${tag}>`}</p>
     </a>
     <div id="inner">
