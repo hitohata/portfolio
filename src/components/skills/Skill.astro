@@ -8,7 +8,7 @@ interface Props {
 const { skill } = Astro.props;
 ---
 
-<TagWrapperLayout tag="Skill">
+<TagWrapperLayout tag="Skill" suffix={skill.category}>
     <div class="skill">
     <p class="category">{`${skill.category}:`}</p>
     <div class="skill-stacks">
