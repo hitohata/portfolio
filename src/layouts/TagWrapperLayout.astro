@@ -1,11 +1,13 @@
 ---
 interface Props {
 	tag: string;
-	suffix?: string
+	suffix?: string;
 }
 
 const { tag, suffix } = Astro.props;
-const linkTag = (tag + (suffix ? `-${suffix}` : "")).replace(/ /g, "-").toLowerCase();
+const linkTag = (tag + (suffix ? `-${suffix}` : ""))
+	.replace(/ /g, "-")
+	.toLowerCase();
 ---
 
 <div id="outer">
