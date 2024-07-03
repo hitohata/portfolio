@@ -2,7 +2,7 @@
 ---
 
 <section>
-    <div id="overview">
+    <div id="overview-content">
         { "Seasoned lead software developer boasting over {%YEARS%}+ years of comprehensive experience in crafting cutting-edge software solutions. Proficient in a myriad of technologies, including React, TypeScript, Apollo, and GraphQL, coupled with a robust backend understanding of Node.js, Rust, and Python. Demonstrated expertise in leveraging AWS, Amazon Aurora, and Docker for scalable cloud-based applications. An adept practitioner of domain-driven development, recognized for confidence and collaborative prowess. Known for delivering projects on time and fostering team synergy."}
     </div>
 </section>
@@ -12,7 +12,7 @@
     // update the experience
 
     const years = new Date(new Date() - Date.parse("2015-04-01")).getFullYear() - 1970;
-    const overview = document.getElementById("overview");
+    const overview = document.getElementById("overview-content");
     const overviewContent = overview.innerText.replace("{%YEARS%}", String(years));
 
     overview.innerHTML = overviewContent || "";
