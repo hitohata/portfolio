@@ -7,7 +7,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<TagWrapperLayout tag="Project">
+<TagWrapperLayout tag="Project" suffix={project.projectTitle}>
     <p class="project-title">{project.projectTitle}</p>
     <div class="detail">
         <div>
