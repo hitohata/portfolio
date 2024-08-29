@@ -86,11 +86,23 @@ export type Project = {
 /** Link to the reference */
 export type ProjectLink = {
   __typename?: 'ProjectLink';
+  /** link type. Like GitHub, Blog and so on */
+  linkType: ProjectLinkType;
   /** reference name. Like blog, github */
   title: Scalars['String']['output'];
   /** the URL to the reference */
   url: Scalars['String']['output'];
 };
+
+export enum ProjectLinkType {
+  Application = 'Application',
+  Blog = 'Blog',
+  Document = 'Document',
+  Gql = 'GQL',
+  GitHub = 'GitHub',
+  Npm = 'NPM',
+  Restapi = 'RESTAPI'
+}
 
 export type Query = {
   __typename?: 'Query';
@@ -108,7 +120,7 @@ export type Query = {
   experience: Experience;
   /** my all experiences. */
   experiences: Array<Experience>;
-  /** specific project. The order starts from 1, and up to 2. */
+  /** specific project. The order starts from 1, and up to 4. */
   project: Project;
   /** Projects I was involved */
   projects: Array<Project>;
@@ -171,7 +183,7 @@ export type Work = {
 export type MyResumeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MyResumeQuery = { __typename?: 'Query', basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
+export type MyResumeQuery = { __typename?: 'Query', basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, linkType: ProjectLinkType, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
 
 
 export const MyResumeDocument = gql`
@@ -190,6 +202,7 @@ export const MyResumeDocument = gql`
     details
     links {
       title
+      linkType
       url
     }
     projectTitle

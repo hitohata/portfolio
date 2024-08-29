@@ -1,0 +1,24 @@
+---
+import "../styles/components/header.css";
+import type { Basics } from "../gql/request";
+
+interface Props {
+	basics: Omit<Basics, "phone">;
+}
+
+const { firstName, lastName, title, location } = Astro.props.basics;
+---
+
+<section class="name-section">
+    <h1>{`Hi, I am ${firstName} ${lastName}`}</h1>
+    <p>{`I am a ${title} living in ${location}`}</p>
+</section>
+
+<style>
+    .name-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+</style>

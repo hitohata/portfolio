@@ -13,6 +13,7 @@ query MyResume {
         details
         links {
             title
+            linkType
             url
         }
         projectTitle

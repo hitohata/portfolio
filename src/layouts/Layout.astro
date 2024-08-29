@@ -1,4 +1,7 @@
 ---
+import Header from "../components/Header.astro";
+import { fetchResume } from "../external/fetch"
+const myResume = await fetchResume();
 ---
 
 <!doctype html>
@@ -15,40 +18,18 @@
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-		color-scheme: light dark;
-	}
+<style>
 	html {
-		font-family: system-ui, sans-serif;
-		background-size: 224px;
-		background: light-dark(black, white);
-		color: light-dark(white, black);
+	  font-family: system-ui, sans-serif;
+	  background-size: 224px;
+	  background: white;
+	  color: black;
 	}
-
-	a {
-		text-decoration: underline;
-		color: light-dark(white, black);
+	body {
+		margin: 0;
 	}
-
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	html.dark {
+		background: black;
+		color: white;
 	}
 </style>
