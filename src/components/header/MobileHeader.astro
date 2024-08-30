@@ -8,14 +8,8 @@ interface Props {
 const { firstName } = Astro.props.basics;
 ---
 <div class="wrapper">
-    <div class="name">
-        <p>{ firstName }</p>
-    </div>
-    <div>
-        <div>
-            <ToggleButton />
-        </div>
-    </div>
+        <p class="name">{ firstName }</p>
+        <ToggleButton />
 </div>
 
 <script></script>
@@ -23,13 +17,14 @@ const { firstName } = Astro.props.basics;
 <style>
     .wrapper {
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         padding: 5px 5px 5px 5px;
     }
     .name {
         font-size: 25px;
         font-style: italic;
         font-family: cursive;
+        margin: 0;
     }
 </style>

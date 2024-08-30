@@ -1,8 +1,10 @@
 #desktop-header {
     display: block;
+    width: 100%;
 }
 #mobile-header {
     display: none;
+    width: 100%;
 }
 @media screen and (max-width: 768px) {
     #desktop-header {
