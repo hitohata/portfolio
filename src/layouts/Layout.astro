@@ -30,3 +30,22 @@
 		color: white;
 	}
 </style>
+<script is:inline lang="ts">
+	const updateSize = () => {
+		const element = document.documentElement;
+		if (window.innerWidth <= 600) {
+			element.classList.add('mobile');
+			element.classList.remove('desktop');
+		} else {
+			element.classList.add('desktop');
+			element.classList.remove('mobile');
+		}
+	}
+	window.addEventListener('resize', () => {
+		updateSize();
+	})
+
+	if (!(document.documentElement.classList.contains('mobile') || document.documentElement.classList.contains('desktop'))) {
+		updateSize();
+	}
+</script>

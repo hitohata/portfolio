@@ -1,5 +1,4 @@
 ---
-import "./Header.css";
 import type { Basics } from "../../gql/request";
 import { DETAILS } from "../../static/static";
 import ToggleButton from "./headerComponents/ToggleButton.astro";
@@ -47,6 +46,7 @@ const { firstName, lastName, title } = Astro.props.basics;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 20px 10px 20px 10px;
     }
     .name {
         font-size: 20px;
@@ -68,5 +68,23 @@ const { firstName, lastName, title } = Astro.props.basics;
         display: flex;
         justify-self: flex-end;
         margin-left: auto;
+    }
+
+    .desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    :global(.mobile) .desktop {
+        display: none;
+    }
+    :global(.mobile) .mobile {
+        display: block;
+    }
+    :global(.mobile) .wrapper {
+        padding: 5px;
     }
 </style>
