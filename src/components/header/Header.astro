@@ -2,6 +2,7 @@
 import "./Header.css";
 import type { Basics } from "../../gql/request";
 import ToggleButton from "./headerComponents/ToggleButton.astro";
+import {DETAILS} from "../../static/static";
 
 interface Props {
 	basics: Omit<Basics, "phone">;
@@ -9,20 +10,6 @@ interface Props {
 
 const { firstName, lastName, title } = Astro.props.basics;
 
-const navLinks = [
-	{
-		link: "",
-		name: "Resume",
-	},
-	{
-		link: "",
-		name: "REST API",
-	},
-	{
-		link: "",
-		name: "GraphQL",
-	},
-];
 ---
 
 <section class="header">
@@ -33,7 +20,7 @@ const navLinks = [
         </div>
         <div class="nav-grid desktop">
             <div class="nav">
-                {navLinks.map(navLink => (
+                {DETAILS.map(navLink => (
                         <a href={ navLink.link }>{ navLink.name }</a>
                 ))}
             </div>
@@ -74,7 +61,7 @@ const navLinks = [
     .nav {
         display: flex;
     }
-    .nav-grid > a {
+    .nav > a {
         padding: 0 5px 0 5px;
     }
     .toggle-button-grid {
