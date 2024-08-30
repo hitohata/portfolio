@@ -61,9 +61,10 @@ const details: DetailContentTypes[] = [
    }
 
    :global(.mobile) .detail {
-       margin: 10px 0;
+       display: grid;
+       grid-template-columns: 1fr 1fr;
        width: 100%;
-       flex-direction: row;
-       justify-content: space-between;
+       margin: 5px 0;
+       justify-content: center;
    }
 </style>
