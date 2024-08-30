@@ -1,0 +1,50 @@
+---
+import ContactInformation from "../../components/v1/ContactInformation.astro";
+import Detail from "../../components/v1/Detail.astro";
+import Projects from "../../components/v1/Projects.astro";
+import Skills from "../../components/v1/Skills.astro";
+import { fetchResume } from "../../external/fetch";
+import Layout from "../../layouts/v1/Layout.astro";
+import TagWrapperLayout from "../../layouts/v1/TagWrapperLayout.astro";
+import "../styles/global.css";
+
+const myResume = await fetchResume();
+---
+
+<Layout>
+	<!--<AppBarLayout>-->
+		<main>
+			<TagWrapperLayout tag="Contact Information">
+				<ContactInformation contactInfo={ myResume.allContactInformation } />
+			</TagWrapperLayout>
+			<TagWrapperLayout tag="Detail">
+				<Detail />
+			</TagWrapperLayout>
+			<TagWrapperLayout tag="Skills">
+				<Skills skills={ myResume.technicalSkills } />
+			</TagWrapperLayout>
+			<TagWrapperLayout tag="Projects">
+				<Projects projects={ myResume.projects } />
+			</TagWrapperLayout>
+		</main>
+	<!--</AppBarLayout>-->
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		text-align: center;
+		margin-bottom: 1em;
+	}
+	.contents {
+		width: 80%;
+		margin: auto;
+	}
+</style>
