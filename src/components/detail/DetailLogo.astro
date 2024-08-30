@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
-import type { DetailNameType } from "../../static/static";
+import type { DetailContentNameType } from "./Detail.astro";
 
 interface Props {
-	name: DetailNameType;
+	name: DetailContentNameType;
 }
 
 const { name } = Astro.props;
@@ -13,6 +13,10 @@ const { name } = Astro.props;
     { name === "Resume" && <Icon name="file" /> }
     { name === "GraphQL" && <Icon name="graphql" /> }
     { name === "REST API" && <Icon name="restapi" /> }
+    { name === "EMail" && <Icon name="envelope" /> }
+    { name === "LinkedIn" && <Icon name="linkedin" /> }
+    { name === "GitHub" && <Icon name="github" /> }
+    { name === "Dev.to" && <Icon name="devto" /> }
 </div>
 
 <style>

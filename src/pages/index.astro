@@ -24,7 +24,7 @@ const myResume = await fetchResume();
 				<Section title="Overview" />
 				<Overview overview={ myResume.overview } />
 				<Section title="More Detail" />
-				<Detail />
+				<Detail contactInformation={ myResume.allContactInformation } />
 			<!--<TagWrapperLayout tag="Contact Information">-->
 			<!--	<ContactInformation contactInfo={ myResume.allContactInformation } />-->
 			<!--</TagWrapperLayout>-->
@@ -44,7 +44,7 @@ const myResume = await fetchResume();
 
 <style>
 	main {
-		margin: auto auto 100px auto;
+		margin: auto;
 		font-size: 20px;
 		line-height: 1.6;
 	}
@@ -57,7 +57,7 @@ const myResume = await fetchResume();
 	}
 	.contents {
 		width: 70%;
-		margin: auto;
+		margin: 50px auto;
 	}
 </style>
 

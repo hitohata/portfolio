@@ -1,10 +1,30 @@
 ---
-import { DETAILS } from "../../static/static";
+import type { ContactInfo, ContactType } from "../../gql/request";
+import { DETAILS, type DetailNameType } from "../../static/static";
 import DetailLogo from "./DetailLogo.astro";
+
+interface Props {
+	contactInformation: ContactInfo[];
+}
+
+const { contactInformation } = Astro.props;
+
+export type DetailContentNameType = ContactType | DetailNameType | "Dev.to";
+
+export type DetailContentTypes = {
+	name: DetailContentNameType;
+	link: string;
+};
+
+const details: DetailContentTypes[] = [
+	...DETAILS.map((detail) => ({ name: detail.name, link: detail.link })),
+	...contactInformation.map((info) => ({ name: info.type, link: info.url })),
+	{ name: "Dev.to", link: "https://dev.to/hirohata" },
+];
 ---
 
 <section class="details">
-    { DETAILS.map(detail =>
+    { details.map(detail =>
         <a class="detail" href={detail.link} target="_blank">
             <DetailLogo name={ detail.name } />
             <p>{detail.name}</p>
@@ -30,12 +50,20 @@ import DetailLogo from "./DetailLogo.astro";
        text-decoration: none;
    }
 
+   :global(.desktop) p {
+       font-size: 0.9rem;
+       margin-top: 0.3rem;
+   }
+
    :global(.mobile) .details {
        flex-direction: column;
+       justify-content: center;
    }
 
    :global(.mobile) .detail {
        margin: 10px 0;
+       width: 100%;
        flex-direction: row;
+       justify-content: space-between;
    }
 </style>

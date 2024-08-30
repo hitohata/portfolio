@@ -8,6 +8,7 @@ query MyResume {
     overview
     allContactInformation {
         type
+        name
         url
     }
     projects {
