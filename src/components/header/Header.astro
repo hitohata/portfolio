@@ -1,15 +1,14 @@
 ---
 import "./Header.css";
 import type { Basics } from "../../gql/request";
+import { DETAILS } from "../../static/static";
 import ToggleButton from "./headerComponents/ToggleButton.astro";
-import {DETAILS} from "../../static/static";
 
 interface Props {
 	basics: Omit<Basics, "phone">;
 }
 
 const { firstName, lastName, title } = Astro.props.basics;
-
 ---
 
 <section class="header">
