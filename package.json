@@ -26,6 +26,7 @@
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/client-preset": "4.2.6",
     "@graphql-codegen/typescript-graphql-request": "^6.2.0",
+    "boxicons": "^2.1.4",
     "wrangler": "^3.59.0"
   }
 }

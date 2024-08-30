@@ -1,0 +1,35 @@
+---
+import type { Basics } from "../../gql/request";
+import ToggleButton from "./headerComponents/ToggleButton.astro";
+interface Props {
+	basics: Omit<Basics, "phone">;
+}
+
+const { firstName } = Astro.props.basics;
+---
+<div class="wrapper">
+    <div class="name">
+        <p>{ firstName }</p>
+    </div>
+    <div>
+        <div>
+            <ToggleButton />
+        </div>
+    </div>
+</div>
+
+<script></script>
+
+<style>
+    .wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 5px 5px 5px;
+    }
+    .name {
+        font-size: 25px;
+        font-style: italic;
+        font-family: cursive;
+    }
+</style>

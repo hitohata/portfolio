@@ -1,0 +1,49 @@
+---
+import "./Header.css";
+import type { Basics } from "../../gql/request";
+import DesktopHeader from "./DesktopHeader.astro";
+import MobileHeader from "./MobileHeader.astro";
+
+interface Props {
+	basics: Omit<Basics, "phone">;
+}
+
+const { basics } = Astro.props;
+
+const navLinks = [
+	{
+		link: "",
+		name: "Resume",
+	},
+	{
+		link: "",
+		name: "REST API",
+	},
+	{
+		link: "",
+		name: "GraphQL",
+	},
+];
+---
+
+<section class="header">
+    <div id="mobile-header">
+        <MobileHeader basics={basics} />
+    </div>
+    <div id="desktop-header">
+        <DesktopHeader basics={basics} navLinks={ navLinks } />
+    </div>
+</section>
+
+<style>
+    .header {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        background-color: #fff;
+        border-bottom: solid;
+    }
+    :global(.dark) .header {
+        background-color: #000;
+    }
+</style>
