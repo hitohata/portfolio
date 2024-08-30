@@ -1,16 +1,22 @@
-#desktop-header {
+.desktop {
     display: block;
-    width: 100%;
 }
-#mobile-header {
+
+.wrapper {
+    padding: 20px 10px 20px 10px;
+}
+
+.mobile {
     display: none;
-    width: 100%;
 }
 @media screen and (max-width: 768px) {
-    #desktop-header {
+    .desktop {
         display: none;
     }
-    #mobile-header {
+    .mobile {
         display: block;
+    }
+    .wrapper[class~="mobile"] {
+        padding: 5px 5px 5px 5px;
     }
 }

@@ -1,14 +1,13 @@
 ---
 import "./Header.css";
 import type { Basics } from "../../gql/request";
-import DesktopHeader from "./DesktopHeader.astro";
-import MobileHeader from "./MobileHeader.astro";
+import ToggleButton from "./headerComponents/ToggleButton.astro";
 
 interface Props {
 	basics: Omit<Basics, "phone">;
 }
 
-const { basics } = Astro.props;
+const { firstName, lastName, title } = Astro.props.basics;
 
 const navLinks = [
 	{
@@ -27,11 +26,21 @@ const navLinks = [
 ---
 
 <section class="header">
-    <div id="mobile-header">
-        <MobileHeader basics={basics} />
-    </div>
-    <div id="desktop-header">
-        <DesktopHeader basics={basics} navLinks={ navLinks } />
+    <div class="wrapper">
+        <div class="name-grid">
+            <p class="desktop name">{`${firstName} ${lastName} - ${title}`}</p>
+            <p class="mobile name">{`${firstName}`}</p>
+        </div>
+        <div class="nav-grid desktop">
+            <div class="nav">
+                {navLinks.map(navLink => (
+                        <a href={ navLink.link }>{ navLink.name }</a>
+                ))}
+            </div>
+        </div>
+        <div class="toggle-button-grid">
+            <ToggleButton />
+        </div>
     </div>
 </section>
 
@@ -45,5 +54,32 @@ const navLinks = [
     }
     :global(.dark) .header {
         background-color: #000;
+    }
+    .wrapper {
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .name {
+        font-size: 20px;
+        font-style: italic;
+        font-family: cursive;
+        margin: 0;
+    }
+    .nav-grid {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .nav {
+        display: flex;
+    }
+    .nav-grid > a {
+        padding: 0 5px 0 5px;
+    }
+    .toggle-button-grid {
+        display: flex;
+        justify-self: flex-end;
+        margin-left: auto;
     }
 </style>
