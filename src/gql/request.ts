@@ -41,9 +41,9 @@ export type ContactInfo = {
 };
 
 export enum ContactType {
-  Email = 'email',
-  Github = 'github',
-  Linkedin = 'linkedin'
+  EMail = 'EMail',
+  GitHub = 'GitHub',
+  LinkedIn = 'LinkedIn'
 }
 
 export type Education = {
@@ -120,6 +120,8 @@ export type Query = {
   experience: Experience;
   /** my all experiences. */
   experiences: Array<Experience>;
+  /** overview. */
+  overview: Scalars['String']['output'];
   /** specific project. The order starts from 1, and up to 4. */
   project: Project;
   /** Projects I was involved */
@@ -183,7 +185,7 @@ export type Work = {
 export type MyResumeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MyResumeQuery = { __typename?: 'Query', basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, linkType: ProjectLinkType, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
+export type MyResumeQuery = { __typename?: 'Query', overview: string, basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, linkType: ProjectLinkType, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
 
 
 export const MyResumeDocument = gql`
@@ -194,6 +196,7 @@ export const MyResumeDocument = gql`
     firstName
     title
   }
+  overview
   allContactInformation {
     type
     url

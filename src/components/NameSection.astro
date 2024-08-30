@@ -10,7 +10,7 @@ const { firstName, lastName, title, location } = Astro.props.basics;
 ---
 
 <section class="name-section">
-    <h1 id="greet">{`Hi, I am ${firstName} ${lastName}`.split("").map(el => <span>{el}</span>)}</h1>
+    <h1 id="greet">{`Hi, I'm ${firstName} ${lastName}`.split("").map(el => <span>{el}</span>)}</h1>
     <p>{`I am a ${title}`}</p>
     <p>{`living in ${location}`}</p>
 </section>

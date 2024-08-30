@@ -5,6 +5,7 @@ query MyResume {
         firstName
         title
     }
+    overview
     allContactInformation {
         type
         url
