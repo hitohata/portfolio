@@ -1,0 +1,41 @@
+---
+import { DETAILS } from "../../static/static";
+import DetailLogo from "./DetailLogo.astro";
+---
+
+<section class="details">
+    { DETAILS.map(detail =>
+        <a class="detail" href={detail.link} target="_blank">
+            <DetailLogo name={ detail.name } />
+            <p>{detail.name}</p>
+        </a>
+    ) }
+</section>
+
+<style>
+   .details {
+       display: flex;
+       align-items: center;
+       justify-content: space-evenly;
+   }
+
+   .detail {
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       flex-direction: column;
+   }
+
+   a {
+       text-decoration: none;
+   }
+
+   :global(.mobile) .details {
+       flex-direction: column;
+   }
+
+   :global(.mobile) .detail {
+       margin: 10px 0;
+       flex-direction: row;
+   }
+</style>

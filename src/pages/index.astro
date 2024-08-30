@@ -1,14 +1,14 @@
 ---
-import ContactInformation from "../components/ContactInformation.astro";
-import Detail from "../components/Detail.astro";
 import NameSection from "../components/NameSection.astro";
 import Overview from "../components/Overview.astro";
-import Projects from "../components/Projects.astro";
-import Skills from "../components/Skills.astro";
+import Detail from "../components/detail/Detail.astro";
 import Header from "../components/header/Header.astro";
+import ContactInformation from "../components/v1/ContactInformation.astro";
+import Projects from "../components/v1/Projects.astro";
+import Skills from "../components/v1/Skills.astro";
 import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
-import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
+import TagWrapperLayout from "../layouts/v1/TagWrapperLayout.astro";
 import "../styles/global.css";
 import Section from "../components/utils/Section.astro";
 
@@ -20,9 +20,11 @@ const myResume = await fetchResume();
 		<main>
 			<Header basics={ myResume.basics } />
 			<div class="contents">
-			<NameSection basics={ myResume.basics } />
-			<Section title="Overview" />
-			<Overview overview={ myResume.overview } />
+				<NameSection basics={ myResume.basics } />
+				<Section title="Overview" />
+				<Overview overview={ myResume.overview } />
+				<Section title="More Detail" />
+				<Detail />
 			<!--<TagWrapperLayout tag="Contact Information">-->
 			<!--	<ContactInformation contactInfo={ myResume.allContactInformation } />-->
 			<!--</TagWrapperLayout>-->
@@ -42,7 +44,7 @@ const myResume = await fetchResume();
 
 <style>
 	main {
-		margin: auto;
+		margin: auto auto 100px auto;
 		font-size: 20px;
 		line-height: 1.6;
 	}
@@ -54,7 +56,8 @@ const myResume = await fetchResume();
 		margin-bottom: 1em;
 	}
 	.contents {
-		width: 80%;
+		width: 70%;
 		margin: auto;
 	}
 </style>
+

@@ -4,7 +4,7 @@ interface Props {
 }
 const { title } = Astro.props;
 ---
-<div class="section-title">
+<div class="section-title" id={title.replace(" ", "-").toLowerCase()}>
     <div>
         <h2 class="title">{ title }</h2>
         <div class="border" />

@@ -24,7 +24,7 @@ This portfolio depends on [my resume service](https://github.com/hitohata/my-res
 
 ### Logo
 
-[Boxicons](https://boxicons.com)
+[Astro Icon](https://www.astroicon.dev/)
 
 ## Note
 
