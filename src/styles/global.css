@@ -1,0 +1,7 @@
+html a {
+    text-decoration: underline;
+    color: black;
+}
+html.dark a {
+    color: white;
+}

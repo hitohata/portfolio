@@ -1,0 +1,29 @@
+---
+import { Icon } from "astro-icon/components";
+import type { DetailContentNameType } from "./Detail.astro";
+
+interface Props {
+	name: DetailContentNameType;
+}
+
+const { name } = Astro.props;
+---
+
+<div class="icon">
+    { name === "Resume" && <Icon name="file" /> }
+    { name === "GraphQL" && <Icon name="graphql" /> }
+    { name === "REST API" && <Icon name="restapi" /> }
+    { name === "EMail" && <Icon name="envelope" /> }
+    { name === "LinkedIn" && <Icon name="linkedin" /> }
+    { name === "GitHub" && <Icon name="github" /> }
+    { name === "Dev.to" && <Icon name="devto" /> }
+</div>
+
+<style>
+    [data-icon] {
+        font-size: 4rem;
+    }
+    :global(.mobile) [data-icon] {
+        font-size: 4rem;
+    }
+</style>

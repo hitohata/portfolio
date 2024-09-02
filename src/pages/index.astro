@@ -1,48 +1,40 @@
 ---
-import ContactInformation from "../components/ContactInformation.astro";
-import Detail from "../components/Detail.astro";
-import Header from "../components/Header.astro";
+import NameSection from "../components/NameSection.astro";
 import Overview from "../components/Overview.astro";
-import Projects from "../components/Projects.astro";
-import Skills from "../components/Skills.astro";
+import Detail from "../components/detail/Detail.astro";
+import Header from "../components/header/Header.astro";
+import Projects from "../components/projects/Projects.astro";
 import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
-import TagWrapperLayout from "../layouts/TagWrapperLayout.astro";
+import Section from "../components/utils/Section.astro";
+import TechStacks from "../components/techStacks/TechStacks.astro"
+import Footer from "../components/Footer.astro"
+import "../styles/global.css";
 
 const myResume = await fetchResume();
 ---
 
 <Layout>
-	<!--<AppBarLayout>-->
-		<main>
-			<TagWrapperLayout tag="Breaf Introduction">
-				<Header basics={ myResume.basics } />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Overview">
-				<Overview />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Contact Information">
-				<ContactInformation contactInfo={ myResume.allContactInformation } />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Detail">
-				<Detail />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Skills">
-				<Skills skills={ myResume.technicalSkills } />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Projects">
-				<Projects projects={ myResume.projects } />
-			</TagWrapperLayout>
-		</main>
-	<!--</AppBarLayout>-->
+	<main>
+		<Header basics={ myResume.basics } />
+		<div class="contents">
+			<NameSection basics={ myResume.basics } />
+			<Section title="Overview" />
+			<Overview overview={ myResume.overview } />
+			<Section title="More Detail" />
+			<Detail contactInformation={ myResume.allContactInformation } />
+			<Section title="Projects" />
+			<Projects projects={ myResume.projects } />
+			<Section title="Tech Stacks" />
+			<TechStacks techStacks={ myResume.technicalSkills } />
+		</div>
+		<Footer basics={ myResume.basics } />
+	</main>
 </Layout>
 
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
-		width: 900px;
-		max-width: calc(100% - 2rem);
 		font-size: 20px;
 		line-height: 1.6;
 	}
@@ -53,4 +45,9 @@ const myResume = await fetchResume();
 		text-align: center;
 		margin-bottom: 1em;
 	}
+	.contents {
+		width: 70%;
+		margin: 50px auto;
+	}
 </style>
+

@@ -5,14 +5,18 @@ query MyResume {
         firstName
         title
     }
+    overview
     allContactInformation {
         type
+        name
         url
     }
     projects {
         details
+        image
         links {
             title
+            linkType
             url
         }
         projectTitle

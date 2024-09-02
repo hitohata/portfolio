@@ -1,0 +1,90 @@
+---
+import type { Basics } from "../../gql/request";
+import { DETAILS } from "../../static/static";
+import ToggleButton from "./headerComponents/ToggleButton.astro";
+
+interface Props {
+	basics: Omit<Basics, "phone">;
+}
+
+const { firstName, lastName, title } = Astro.props.basics;
+---
+
+<section class="header">
+    <div class="wrapper">
+        <div class="name-grid">
+            <p class="desktop name">{`${firstName} ${lastName} - ${title}`}</p>
+            <p class="mobile name">{`${firstName}`}</p>
+        </div>
+        <div class="nav-grid desktop">
+            <div class="nav">
+                {DETAILS.map(navLink => (
+                        <a href={ navLink.link }>{ navLink.name }</a>
+                ))}
+            </div>
+        </div>
+        <div class="toggle-button-grid">
+            <ToggleButton />
+        </div>
+    </div>
+</section>
+
+<style>
+    .header {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        background-color: #fff;
+        border-bottom: solid;
+        z-index: 1;
+    }
+    :global(.dark) .header {
+        background-color: #000;
+    }
+    .wrapper {
+        width: 95%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 10px 20px 10px;
+    }
+    .name {
+        font-size: 20px;
+        font-style: italic;
+        font-family: cursive;
+        margin: 0;
+    }
+    .nav-grid {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .nav {
+        display: flex;
+    }
+    .nav > a {
+        padding: 0 5px 0 5px;
+    }
+    .toggle-button-grid {
+        display: flex;
+        justify-self: flex-end;
+        margin-left: auto;
+    }
+
+    .desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    :global(.mobile) .desktop {
+        display: none;
+    }
+    :global(.mobile) .mobile {
+        display: block;
+    }
+    :global(.mobile) .wrapper {
+        padding: 5px;
+    }
+</style>

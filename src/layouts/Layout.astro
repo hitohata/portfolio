@@ -2,12 +2,14 @@
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="icon" type="iamge/png" sizes="16x16" href="/favicon-.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Taro Hirohata</title>
 	</head>
@@ -15,40 +17,37 @@
 		<slot />
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-		color-scheme: light dark;
-	}
+<style>
 	html {
-		font-family: system-ui, sans-serif;
-		background-size: 224px;
-		background: light-dark(black, white);
-		color: light-dark(white, black);
+	  font-family: system-ui, sans-serif;
+	  background-size: 224px;
+	  background: white;
+	  color: black;
 	}
-
-	a {
-		text-decoration: underline;
-		color: light-dark(white, black);
+	body {
+		margin: 0;
 	}
-
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	html.dark {
+		background: black;
+		color: white;
 	}
 </style>
+<script is:inline lang="ts">
+	const updateSize = () => {
+		const element = document.documentElement;
+		if (window.innerWidth <= 600) {
+			element.classList.add('mobile');
+			element.classList.remove('desktop');
+		} else {
+			element.classList.add('desktop');
+			element.classList.remove('mobile');
+		}
+	}
+	window.addEventListener('resize', () => {
+		updateSize();
+	})
+
+	if (!(document.documentElement.classList.contains('mobile') || document.documentElement.classList.contains('desktop'))) {
+		updateSize();
+	}
+</script>

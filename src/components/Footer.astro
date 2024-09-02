@@ -1,0 +1,29 @@
+---
+import type { Basics } from "../gql/request"
+interface Props {
+    basics: Omit<Basics, "phone">;
+}
+const { basics } = Astro.props;
+---
+
+<div class="footer">
+    <p>{ ` 🄯 Created by ${basics.firstName} ${basics.lastName}`}</p>
+</div>
+
+<style>
+    .footer {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 10px 0;
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.8em;
+    }
+
+    a {
+        padding: 0 2px;
+        font-size: 0.8em;
+    }
+</style>

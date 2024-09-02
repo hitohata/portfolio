@@ -1,0 +1,65 @@
+---
+import "../styles/components/header.css";
+import type { Basics } from "../gql/request";
+
+interface Props {
+	basics: Omit<Basics, "phone">;
+}
+
+const { firstName, lastName, title, location } = Astro.props.basics;
+---
+
+<section class="name-section">
+    <h1 id="greet">{`Hi, I am ${firstName} ${lastName}`.split("").map(el => <span>{el}</span>)}</h1>
+    <p>{`I am a ${title}`}</p>
+    <p>{`living in ${location}`}</p>
+</section>
+
+<style>
+    .name-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    p {
+        width: 80%;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .wavy {
+      animation-name: wavy;
+      animation-duration: 1.3s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    @keyframes wavy {
+      0% {
+        top: 0;
+      }
+      50% {
+        top: -15px;
+      }
+      100% {
+        top: 0;
+      }
+    }
+</style>
+<script is:inline>
+    const DELAY= 200;
+
+    const h1 = document.getElementById("greet");
+
+    if (h1) {
+       Array.from(h1.children).forEach((span, index) => {
+           setTimeout(() => {
+               span.classList.add("wavy");
+           }, index * 60 + DELAY);
+       });
+   }
+</script>

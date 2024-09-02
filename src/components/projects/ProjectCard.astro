@@ -1,0 +1,111 @@
+---
+import type { Project } from "../../gql/request";
+import LinkIcons from "./LinkIcons.astro";
+
+interface Props {
+	project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project-card">
+    <h3 class="title">{project.projectTitle}</h3>
+    <img class="image" src={ project.image } alt={ project.projectTitle } />
+    <p class="description">{ `${project.details.join(" ")}` }</p>
+    <div class="links">
+        { project.links.map(link => (
+                <a href={ link.url } target="_blank"  >
+                    <LinkIcons projectLinkType={ link.linkType } />
+                </a>
+        )) }
+    </div>
+    <div class="tech-stack">
+        <h5>TechStack</h5>
+        <div class="tech-stack-description">
+            { project.techStacks.map(techStack => (
+                <p>{ techStack }</p>
+            )) }
+        </div>
+    </div>
+</div>
+
+<style>
+    .project-card {
+        display: grid;
+        max-width: 100%;
+        grid-template-areas:
+                "thomb"
+                "title"
+                "description"
+                "links"
+                "tech";
+        border-radius: 30px;
+        margin: 10px;
+        overflow: hidden;
+        background-color: #bbe9f5;;
+        box-shadow: 4px 4px 4px #000000;
+    }
+    .title {
+        grid-area: title;
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+
+    .image {
+        grid-area: thomb;
+        width: 100%;
+        height: 227px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .description {
+        grid-area: description;
+        margin: 0;
+        padding: 0 10px;
+    }
+    .links {
+        grid-area: links;
+        display: flex;
+        margin: 10px 0;
+        padding: 0 10px;
+    }
+
+    .target-link-name {
+        text-decoration: none;
+    }
+
+    .tech-stack {
+        grid-area: tech;
+        padding: 0 10px  10px 10px;
+    }
+
+    h5 {
+        margin: 4px 0;
+    }
+
+    .tech-stack-description {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 16px;
+    }
+
+    .tech-stack-description > p {
+        padding-right: 10px;
+        margin: 0;
+    }
+
+    :global(.mobile) .project-card {
+        width: 100%;
+        grid-template-areas:
+                "thomb"
+                "title"
+                "description"
+                "links"
+                "tech";
+        box-shadow: 4px 4px 4px #ffffff;
+    }
+    :global(.dark) .project-card {
+        background-color: #84a6ad;;
+    }
+</style>
