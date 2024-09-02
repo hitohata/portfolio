@@ -4,30 +4,36 @@ import Detail from "../../components/v1/Detail.astro";
 import Projects from "../../components/v1/Projects.astro";
 import Skills from "../../components/v1/Skills.astro";
 import { fetchResume } from "../../external/fetch";
+import Header from "../../components/v1/Header.astro";
+import Overview from "../../components/v1/Overview.astro";
 import Layout from "../../layouts/v1/Layout.astro";
 import TagWrapperLayout from "../../layouts/v1/TagWrapperLayout.astro";
-import "../styles/global.css";
+import "../../styles/global.css";
 
 const myResume = await fetchResume();
 ---
 
 <Layout>
-	<!--<AppBarLayout>-->
-		<main>
-			<TagWrapperLayout tag="Contact Information">
-				<ContactInformation contactInfo={ myResume.allContactInformation } />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Detail">
-				<Detail />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Skills">
-				<Skills skills={ myResume.technicalSkills } />
-			</TagWrapperLayout>
-			<TagWrapperLayout tag="Projects">
-				<Projects projects={ myResume.projects } />
-			</TagWrapperLayout>
-		</main>
-	<!--</AppBarLayout>-->
+	<main>
+		<TagWrapperLayout tag="Breaf Introduction">
+			<Header basics={ myResume.basics } />
+		</TagWrapperLayout>
+		<TagWrapperLayout tag="Overview">
+			<Overview />
+		</TagWrapperLayout>
+		<TagWrapperLayout tag="Contact Information">
+			<ContactInformation contactInfo={ myResume.allContactInformation } />
+		</TagWrapperLayout>
+		<TagWrapperLayout tag="Detail">
+			<Detail />
+		</TagWrapperLayout>
+		<TagWrapperLayout tag="Skills">
+			<Skills skills={ myResume.technicalSkills } />
+		</TagWrapperLayout>
+		<TagWrapperLayout tag="Projects">
+			<Projects projects={ myResume.projects } />
+		</TagWrapperLayout>
+	</main>
 </Layout>
 
 <style>
