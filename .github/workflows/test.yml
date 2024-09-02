@@ -19,4 +19,6 @@ jobs:
         run: bun install
       - name: check format
         run: bun run format:check
+      - name: build
+        run: bun run build
 
