@@ -1,7 +1,7 @@
 ---
-import type { Basics } from "../gql/request"
+import type { Basics } from "../gql/request";
 interface Props {
-    basics: Omit<Basics, "phone">;
+	basics: Omit<Basics, "phone">;
 }
 const { basics } = Astro.props;
 ---
@@ -19,11 +19,6 @@ const { basics } = Astro.props;
 
     p {
         margin: 0;
-        font-size: 0.8em;
-    }
-
-    a {
-        padding: 0 2px;
         font-size: 0.8em;
     }
 </style>

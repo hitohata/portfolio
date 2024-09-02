@@ -1,14 +1,14 @@
 ---
+import Footer from "../components/Footer.astro";
 import NameSection from "../components/NameSection.astro";
 import Overview from "../components/Overview.astro";
 import Detail from "../components/detail/Detail.astro";
 import Header from "../components/header/Header.astro";
 import Projects from "../components/projects/Projects.astro";
+import TechStacks from "../components/techStacks/TechStacks.astro";
+import Section from "../components/utils/Section.astro";
 import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
-import Section from "../components/utils/Section.astro";
-import TechStacks from "../components/techStacks/TechStacks.astro"
-import Footer from "../components/Footer.astro"
 import "../styles/global.css";
 
 const myResume = await fetchResume();
