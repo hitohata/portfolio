@@ -1,0 +1,27 @@
+---
+import type { Project } from "../../gql/request";
+import ProjectCard from "./ProjectCard.astro";
+
+interface Props {
+	projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="projects">
+    {
+        projects.map(project => (<ProjectCard project={ project } />))
+    }
+</section>
+
+<style>
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    :global(.mobile) .projects {
+        grid-template-columns: 1fr;;
+    }
+</style>

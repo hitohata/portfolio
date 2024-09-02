@@ -76,6 +76,8 @@ export type Project = {
   __typename?: 'Project';
   /** description for this project */
   details: Array<Scalars['String']['output']>;
+  /** thumbnail URL */
+  image: Scalars['String']['output'];
   links: Array<ProjectLink>;
   /** Project Name */
   projectTitle: Scalars['String']['output'];
@@ -95,13 +97,13 @@ export type ProjectLink = {
 };
 
 export enum ProjectLinkType {
-  Application = 'Application',
-  Blog = 'Blog',
+  Devto = 'Devto',
   Document = 'Document',
   Gql = 'GQL',
   GitHub = 'GitHub',
   Npm = 'NPM',
-  Restapi = 'RESTAPI'
+  Restapi = 'RESTAPI',
+  WebApplication = 'WebApplication'
 }
 
 export type Query = {
@@ -185,7 +187,7 @@ export type Work = {
 export type MyResumeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MyResumeQuery = { __typename?: 'Query', overview: string, basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, linkType: ProjectLinkType, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
+export type MyResumeQuery = { __typename?: 'Query', overview: string, basics: { __typename?: 'Basics', lastName: string, location: string, firstName: string, title: string }, allContactInformation: Array<{ __typename?: 'ContactInfo', type: ContactType, name: string, url: string }>, projects: Array<{ __typename?: 'Project', details: Array<string>, image: string, projectTitle: string, techStacks: Array<string>, links: Array<{ __typename?: 'ProjectLink', title: string, linkType: ProjectLinkType, url: string }> }>, technicalSkills: Array<{ __typename?: 'TechnicalSkill', category?: TechStackCategory | null, stacks: Array<string> }> };
 
 
 export const MyResumeDocument = gql`
@@ -199,10 +201,12 @@ export const MyResumeDocument = gql`
   overview
   allContactInformation {
     type
+    name
     url
   }
   projects {
     details
+    image
     links {
       title
       linkType

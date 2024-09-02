@@ -33,7 +33,6 @@
 <script is:inline lang="ts">
 	const updateSize = () => {
 		const element = document.documentElement;
-		console.log(window.innerWidth);
 		if (window.innerWidth <= 600) {
 			element.classList.add('mobile');
 			element.classList.remove('desktop');

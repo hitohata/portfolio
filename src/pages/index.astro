@@ -3,8 +3,8 @@ import NameSection from "../components/NameSection.astro";
 import Overview from "../components/Overview.astro";
 import Detail from "../components/detail/Detail.astro";
 import Header from "../components/header/Header.astro";
+import Projects from "../components/projects/Projects.astro";
 import ContactInformation from "../components/v1/ContactInformation.astro";
-import Projects from "../components/v1/Projects.astro";
 import Skills from "../components/v1/Skills.astro";
 import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
@@ -25,6 +25,8 @@ const myResume = await fetchResume();
 				<Overview overview={ myResume.overview } />
 				<Section title="More Detail" />
 				<Detail contactInformation={ myResume.allContactInformation } />
+				<Section title="Projects" />
+				<Projects projects={ myResume.projects } />
 			<!--<TagWrapperLayout tag="Contact Information">-->
 			<!--	<ContactInformation contactInfo={ myResume.allContactInformation } />-->
 			<!--</TagWrapperLayout>-->

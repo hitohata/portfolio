@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ProjectLinkType } from "../../gql/request";
+
+interface Props {
+	projectLinkType: ProjectLinkType;
+}
+
+const { projectLinkType } = Astro.props;
+
+let linkIcon: string;
+
+switch (projectLinkType) {
+	case "Devto": {
+		linkIcon = "devto";
+		break;
+	}
+	case "Document": {
+		linkIcon = "document";
+		break;
+	}
+	case "GQL": {
+		linkIcon = "graphql";
+		break;
+	}
+	case "GitHub": {
+		linkIcon = "github";
+		break;
+	}
+	case "NPM": {
+		linkIcon = "npm";
+		break;
+	}
+	case "RESTAPI": {
+		linkIcon = "restapi";
+		break;
+	}
+	case "WebApplication": {
+		linkIcon = "webapplication";
+		break;
+	}
+	default: {
+		throw new Error(`Unknown project type: ${projectLinkType}`);
+	}
+}
+---
+
+<div class="icon">
+    <Icon name={ linkIcon } />
+</div>
+
+<style>
+    [data-icon] {
+        font-size: 4rem;
+    }
+    :global(.mobile) [data-icon] {
+        font-size: 1.8rem;
+    }
+</style>

@@ -13,6 +13,7 @@ query MyResume {
     }
     projects {
         details
+        image
         links {
             title
             linkType
