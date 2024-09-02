@@ -4,44 +4,30 @@ import Overview from "../components/Overview.astro";
 import Detail from "../components/detail/Detail.astro";
 import Header from "../components/header/Header.astro";
 import Projects from "../components/projects/Projects.astro";
-import ContactInformation from "../components/v1/ContactInformation.astro";
-import Skills from "../components/v1/Skills.astro";
 import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
-import TagWrapperLayout from "../layouts/v1/TagWrapperLayout.astro";
-import "../styles/global.css";
 import Section from "../components/utils/Section.astro";
+import TechStacks from "../components/techStacks/TechStacks.astro"
+import "../styles/global.css";
 
 const myResume = await fetchResume();
 ---
 
 <Layout>
-	<!--<AppBarLayout>-->
-		<main>
-			<Header basics={ myResume.basics } />
-			<div class="contents">
-				<NameSection basics={ myResume.basics } />
-				<Section title="Overview" />
-				<Overview overview={ myResume.overview } />
-				<Section title="More Detail" />
-				<Detail contactInformation={ myResume.allContactInformation } />
-				<Section title="Projects" />
-				<Projects projects={ myResume.projects } />
-			<!--<TagWrapperLayout tag="Contact Information">-->
-			<!--	<ContactInformation contactInfo={ myResume.allContactInformation } />-->
-			<!--</TagWrapperLayout>-->
-			<!--<TagWrapperLayout tag="Detail">-->
-			<!--	<Detail />-->
-			<!--</TagWrapperLayout>-->
-			<!--<TagWrapperLayout tag="Skills">-->
-			<!--	<Skills skills={ myResume.technicalSkills } />-->
-			<!--</TagWrapperLayout>-->
-			<!--<TagWrapperLayout tag="Projects">-->
-			<!--	<Projects projects={ myResume.projects } />-->
-			<!--</TagWrapperLayout>-->
-			</div>
-		</main>
-	<!--</AppBarLayout>-->
+	<main>
+		<Header basics={ myResume.basics } />
+		<div class="contents">
+			<NameSection basics={ myResume.basics } />
+			<Section title="Overview" />
+			<Overview overview={ myResume.overview } />
+			<Section title="More Detail" />
+			<Detail contactInformation={ myResume.allContactInformation } />
+			<Section title="Projects" />
+			<Projects projects={ myResume.projects } />
+			<Section title="Tech Stacks" />
+			<TechStacks techStacks={ myResume.technicalSkills } />
+		</div>
+	</main>
 </Layout>
 
 <style>
