@@ -8,6 +8,7 @@ import { fetchResume } from "../external/fetch";
 import Layout from "../layouts/Layout.astro";
 import Section from "../components/utils/Section.astro";
 import TechStacks from "../components/techStacks/TechStacks.astro"
+import Footer from "../components/Footer.astro"
 import "../styles/global.css";
 
 const myResume = await fetchResume();
@@ -27,6 +28,7 @@ const myResume = await fetchResume();
 			<Section title="Tech Stacks" />
 			<TechStacks techStacks={ myResume.technicalSkills } />
 		</div>
+		<Footer basics={ myResume.basics } />
 	</main>
 </Layout>
 
