@@ -23,6 +23,10 @@ const { name } = Astro.props;
     [data-icon] {
         font-size: 4rem;
     }
+    [data-icon]:hover {
+        transform: scale(1.5);
+        transition: 1s;
+    }
     :global(.mobile) [data-icon] {
         font-size: 4rem;
     }
